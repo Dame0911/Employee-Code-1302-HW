@@ -34,12 +34,27 @@ public class Employee{
       return numDaysWorked;
 
    }
-   /*
+   
    public double getPay(){
-   // (pay for the week)
- 
+      double pay = 0;
+      if(getWeekdayHours() > 40){
+      pay = (1.5 * getPayRate) * getTotalHours;
+      }
+      else if(
+      
+      
+      
+            
+      
+      
+      
+      
+      
+      
+      
+      return pay;
    }
-   */
+   
    public double getPayRate(){
    return payRate;
    }
@@ -75,6 +90,23 @@ public class Employee{
    this.hours[day] = hours;
    }
    
+   public void newWeek(){
+   
+   
+   for(int i=0; i < hours.length; i++){
+      hours[i] = 0;
+      }
+      }
+      
+   
+   public void mergeEmployee(Employee e){
+   
+   for(int i = 0; i < hours.length; i++){
+      hours[i] += e.hours[i];
+      }
+      
+      }
+   
    
    
    //MyTest Code
@@ -99,12 +131,12 @@ public class Employee{
 		testGetNumDaysWorked();
 	   testGetTotalHours();
 		testGetWeekdayHours();
-		testGetWeekendHours();/*
+		testGetWeekendHours();
 		testNewWeek();
 		testMergeEmployee();
 		testGetPay_0_weekday_0_weekend();
 		testGetPay_lessthan40_weekday_0_weekend();
-		testGetPay_lessthan40_weekday_greaterthan0_weekend();
+		testGetPay_lessthan40_weekday_greaterthan0_weekend();/*
 		testGetPay_equalto40_weekday_0_weekend();	
 		testGetPay_greaterthan40_weekday_0_weekend();
 		testGetPay_greaterthan40_weekday_greaterthan0_weekend();
@@ -144,7 +176,7 @@ public class Employee{
 		Employee e = buildEmployee1();
 		System.out.println("Expected: total weekend hours=8.0");
 		System.out.println("  Actual: total weekend hours=" + e.getWeekendHours());
-	}/*
+	}
 
 	public static void testNewWeek() {
 		System.out.println("\n-->testNewWeek()");
@@ -184,7 +216,7 @@ public class Employee{
 		       report += String.format("  Actual: getPay()=$%,.2f", e.getPay());
 		System.out.println(report);
 	}
-
+   
 	public static void testGetPay_lessthan40_weekday_0_weekend() {
 		System.out.println("\n-->testGetPay_lessthan40_weekday_0_weekend()");
 		Employee e;
@@ -211,7 +243,7 @@ public class Employee{
 		       report += String.format("  Actual: getPay()=$%,.2f", e.getPay());
 		System.out.println(report);
 	}
-
+   /*
 	public static void testGetPay_equalto40_weekday_0_weekend() {
 		System.out.println("\n-->testGetPay_equalto40_weekday_0_weekend()");
 		Employee e;
@@ -332,22 +364,4 @@ public class Employee{
 
 
 }
-  
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
   
