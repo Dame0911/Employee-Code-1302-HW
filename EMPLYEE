@@ -36,24 +36,36 @@ public class Employee{
    }
    
    public double getPay(){
-      double pay = 0;
+      double pay;
+      
       if(getWeekdayHours() > 40){
-      pay = (1.5 * getPayRate) * getTotalHours;
-      }
-      else if(
-      
-      
-      
+         pay = 1.5 * getPayRate() * getWeekdayHours();
+         
+            if(getWeekendHours() > 0){
+               pay += getWeekendHours()*2.0;
+               }
             
+         }
       
       
       
+      else if(getWeekdayHours() <= 40){
+         pay = getPayRate() * getWeekdayHours();   
+              
+            if(getWeekendHours() > 0){
+            pay += getWeekendHours() * (getPayRate() * 2.0);
+               }
+            }
       
-      
-      
-      
-      return pay;
+      else{
+        pay = getPayRate() * getWeekdayHours(); 
+       } 
+        
+        return pay;
    }
+   
+   
+   
    
    public double getPayRate(){
    return payRate;
@@ -128,18 +140,18 @@ public class Employee{
       
 
 	   public static void main(String[] args) {
-		testGetNumDaysWorked();
+/*		testGetNumDaysWorked();
 	   testGetTotalHours();
 		testGetWeekdayHours();
 		testGetWeekendHours();
 		testNewWeek();
 		testMergeEmployee();
 		testGetPay_0_weekday_0_weekend();
-		testGetPay_lessthan40_weekday_0_weekend();
-		testGetPay_lessthan40_weekday_greaterthan0_weekend();/*
-		testGetPay_equalto40_weekday_0_weekend();	
+		testGetPay_lessthan40_weekday_0_weekend();*/
+		testGetPay_lessthan40_weekday_greaterthan0_weekend();
+		testGetPay_equalto40_weekday_0_weekend();
 		testGetPay_greaterthan40_weekday_0_weekend();
-		testGetPay_greaterthan40_weekday_greaterthan0_weekend();
+		testGetPay_greaterthan40_weekday_greaterthan0_weekend();/*
 		testGetPay_lessthan40_weekday_greaterthan0_weekend_7_days();
 		testGetPay_greaterthan40_weekday_greaterthan0_weekend_7_days();
 		testToString();
@@ -207,7 +219,7 @@ public class Employee{
 		System.out.println("  Actual: total weekend hours=" + e1.getWeekendHours());
 
 	}
-
+   
 	public static void testGetPay_0_weekday_0_weekend() {
 		System.out.println("\n-->testGetPay_0_weekday_0_weekend()");
 		Employee e;
@@ -229,7 +241,7 @@ public class Employee{
 		       report += String.format("  Actual: getPay()=$%,.2f", e.getPay());
 		System.out.println(report);
 	}
-
+   
 	public static void testGetPay_lessthan40_weekday_greaterthan0_weekend() {
 		System.out.println("\n-->testGetPay_lessthan40_weekday_greaterthan0_weekend()");
 		Employee e;
@@ -243,7 +255,7 @@ public class Employee{
 		       report += String.format("  Actual: getPay()=$%,.2f", e.getPay());
 		System.out.println(report);
 	}
-   /*
+   
 	public static void testGetPay_equalto40_weekday_0_weekend() {
 		System.out.println("\n-->testGetPay_equalto40_weekday_0_weekend()");
 		Employee e;
@@ -258,7 +270,7 @@ public class Employee{
 		       report += String.format("  Actual: getPay()=$%,.2f", e.getPay());
 		System.out.println(report);
 	}
-
+       
 	public static void testGetPay_greaterthan40_weekday_0_weekend() {
 		System.out.println("\n-->testGetPay_greaterthan40_weekday_0_weekend()");
 		Employee e;
@@ -288,7 +300,7 @@ public class Employee{
 		String report =  String.format("Expected: getPay()=$%,.2f\n", 1175.0);
 		       report += String.format("  Actual: getPay()=$%,.2f", e.getPay());
 		System.out.println(report);
-	}
+	}/*
 
 	public static void testGetPay_lessthan40_weekday_greaterthan0_weekend_7_days() {
 		System.out.println("\n-->testGetPay_lessthan40_weekday_greaterthan0_weekend_7_days()");
